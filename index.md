@@ -1,37 +1,47 @@
-## Welcome to GitHub Pages
+# Kerala-IoT-Challenge
 
-You can use the [editor on GitHub](https://github.com/arjunkr2001/Kerala-IoT-Challenge/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+> Foxlab Makerspace in association with GTech - Group of Technology Companies in Kerala is launching our prestigious program “Kerala IoT Challenge 2021”, with a vision to mould 100 IoT experts in Kerala, hosting on the µLearn platform. Kerala IoT Challenge is a program designed in 4 levels followed by a hackathon to identify and train quality industry leaders in the IoT domain, while any novice learner can start with layer 1 and others can enter laterally to the desired layer after an evaluation.
+# About Me
+> Hi, I am Arjun KR, 3rd year Computer Science Engineering student from IES College of Engineering Chittilappilly, Thrissur. I like to explore and learn new technologies related to computers. And also I am into web development.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Experiment 1 - Hello World LED Blinking
 
-### Markdown
+> A basic Program similar to printing "*Hello World* " in any programming language. The Aim is to blink an LED using **Arduino Uno Board**.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+> Arduino Uno is an open-source microcontroller board developed by Arduino.cc. It has several advantages over the conventional microcontrollers. It comes with a pre-tested software and hardware libraries and has its own integrated development environment (IDE). Also it is less expensive & beginner friendly.
 
-```markdown
-Syntax highlighted code block
+## Components Required  
+* Arduino Uno Board 
+* USB Cable 
+* LED (Any Color) x 1 Nos
+* 220 OHM Resistor X 1 Nos
+* Breadboard 
+* Jumper Wires (Male to Male ) X 2 Nos
 
-# Header 1
-## Header 2
-### Header 3
+## Circuit Diagram
 
-- Bulleted
-- List
+![circuit diagram](https://user-images.githubusercontent.com/91405741/137279765-8a82a34f-1dc0-4afc-9bd3-a31d7f62c428.png)
 
-1. Numbered
-2. List
+## Code
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+int ledPin = 10; // define digital pin 10.
+void setup()
+{
+pinMode(ledPin, OUTPUT);// define pin with LED connected as output.
+}
+void loop()
+{
+digitalWrite(ledPin, HIGH); // set the LED on.
+delay(1000); // wait for a second.
+digitalWrite(ledPin, LOW); // set the LED off.
+delay(1000); // wait for a second
+}
 
-### Jekyll Themes
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/arjunkr2001/Kerala-IoT-Challenge/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Output
 
-### Support or Contact
+> The LED blinked with a time interval of 1 second
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
