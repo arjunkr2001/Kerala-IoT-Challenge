@@ -15,11 +15,13 @@
 
 <hr>
 
-# <bold>LEVEL 1</bold><a name="level1"></a>
+<a name="level1"></a>
+# <bold>LEVEL 1</bold>
 
 <hr>
 
-# Experiment 1 - Hello World LED Blinking <a name="exp1"></a>
+<a name="exp1"></a>
+# Experiment 1 - Hello World LED Blinking 
 
 > A basic Program similar to printing "*Hello World* " in any programming language. The Aim is to blink an LED using **Arduino Uno Board**.
 
@@ -63,7 +65,8 @@ delay(1000); // wait for a second
 <br>
 <hr>
 
-# Experiment 2 : Traffic Light <a name="exp2"></a>
+<a name="exp2"></a>
+# Experiment 2 : Traffic Light 
 
 > In the previous program, we have done the LED blinking experiment with one LED. Now, it’s time to up the stakes and do a bit more complicated experiment-traffic lights. Actually, these two experiments are similar. While in this traffic lights experiment, we use 3 LEDs with different colors rather than 1 LED.
 
@@ -121,7 +124,9 @@ digitalWrite(redled, LOW);// turn off red LED
 <br>
 <hr>
 
-# Experiment 3 : LED Chasing Effect <a name="exp3"></a>
+<a name="exp3"></a>
+
+# Experiment 3 : LED Chasing Effect 
 
 > We often see billboards composed of colorful LEDs. They are constantly changing to form various light effects. In this experiment, we compile a program to simulate LED chasing effect. The long lead of LED is the positive side; short lead is negative.
 
