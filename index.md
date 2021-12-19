@@ -4,6 +4,7 @@
 # About Me
 > Hi, I am Arjun KR, 3rd year Computer Science Engineering student from IES College of Engineering Chittilappilly, Thrissur. I like to explore and learn new technologies related to computers. And also I am into web development.
 
+<br>
 <hr>
 
 # Experiment 1 - Hello World LED Blinking
@@ -47,6 +48,7 @@ delay(1000); // wait for a second
 
 > The LED blinked with a time interval of 1 second
 
+<br>
 <hr>
 
 # Experiment 2 : Traffic Light
@@ -103,3 +105,55 @@ digitalWrite(redled, LOW);// turn off red LED
 ## Output
 
 > In Traffic light the green LED blink about 5 second, then it is turnoff. Then the yellow LED blinks 3 times with a time interval of 0.5 second.Then the red LED blink about 5 seconds. This process continues.
+
+<br>
+<hr>
+
+# Experiment 3 : LED Chasing Effect
+
+> We often see billboards composed of colorful LEDs. They are constantly changing to form various light effects. In this experiment, we compile a program to simulate LED chasing effect. The long lead of LED is the positive side; short lead is negative.
+
+## Components Required
+
+* Led *6
+* Arduino board *1
+* 220Ω resistor *6
+* Breadboard *1
+* USB cable*1
+* Breadboard wire *13
+
+## Circuit Diagram
+
+![circuit diagram](https://user-images.githubusercontent.com/91405741/137292096-feb60c91-1a9a-474b-a596-300285f7b011.png)
+
+## Code
+
+```
+
+int BASE = 2;  // the I/O pin for the first LED
+int NUM = 6;   // number of LEDs
+void setup()
+{
+   for (int i = BASE; i < BASE + NUM; i++) 
+   {
+     pinMode(i, OUTPUT);   // set I/O pins as output
+   }
+}
+void loop()
+{
+   for (int i = BASE; i < BASE + NUM; i++) 
+   {
+     digitalWrite(i, LOW);    // set I/O pins as “low”, turn off LEDs one by one.
+     delay(200);        // delay
+   }
+   for (int i = BASE; i < BASE + NUM; i++) 
+   {
+     digitalWrite(i, HIGH);    // set I/O pins as “high”, turn on LEDs one by one
+     delay(200);        // delay
+   }  
+}
+
+```
+
+## Output
+>The LEDs starts turning ON from one end in a sequential manner & after all the LEDs are turned ON, they starts to turn OFF the same way.
