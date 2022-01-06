@@ -8,7 +8,8 @@
 1. [Level 1](#level1)  
     1. [Hello World LED Blinking](#exp1)  
     2. [Traffic Light](#exp2)  
-    3. [LED Chasing Effect](#exp3)  
+    3. [LED Chasing Effect](#exp3)
+    4. [Button Controlled LED](#exp4)  
 
 <br>
 <hr>
@@ -174,3 +175,55 @@ void loop()
 
 ## Output
 >The LEDs starts turning ON from one end in a sequential manner & after all the LEDs are turned ON, they starts to turn OFF the same way.
+
+<br>
+<hr>
+
+<a name="exp4"></a>
+
+# Experiment 4: Button Controlled LED
+
+> An experiment to light an LED using a Push Button.
+
+## Components Required 
+
+* Arduino Uno
+* Button switch*1
+* Red M5 LED*1
+* 220ΩResistor*1
+* 10KΩ Resistor*1
+* Breadboard*1
+* Breadboard Jumper Wire*6
+* USB cable*1
+
+## Circuit Diagrams
+
+![Ztk6E_3102_1628160172](https://user-images.githubusercontent.com/91405741/137344162-7149dfcf-836c-43ec-a01c-177d48958d12.png)
+
+![wQGca_3102_1628160139](https://user-images.githubusercontent.com/91405741/137344321-3e662dee-cb00-421d-a34d-848c2ffd1a6f.png)
+
+## Code
+
+```
+
+int ledpin=11;// initialize pin 11
+int inpin=7;// initialize pin 7
+int val;// define val
+void setup(){
+    pinMode(ledpin,OUTPUT);// set LED pin as “output”
+    pinMode(inpin,INPUT);// set button pin as “input”
+}
+void loop(){
+    val=digitalRead(inpin);// read the level value of pin 7 and assign if to val
+    if(val==LOW)// check if the button is pressed, if yes, turn on the LED
+    { 
+        digitalWrite(ledpin,LOW);
+    }
+else{ 
+    digitalWrite(ledpin,HIGH);}
+}
+
+```
+## Output
+
+> When the push button is pressed the LED is turned on otherwise it is off.
