@@ -11,6 +11,7 @@
     3. [LED Chasing Effect](#exp3)
     4. [Button Controlled LED](#exp4)
     5. [Buzzer](#exp5)  
+    6. [RGB LED](#exp6)
 
 <br>
 <hr>
@@ -43,7 +44,7 @@
 
 ## Code
 
-```
+```c
 
 int ledPin = 10; // define digital pin 10.
 void setup()
@@ -87,7 +88,7 @@ delay(1000); // wait for a second
 
 ## Code
 
-```
+```c
 
 int redled =10; // initialize digital pin 8.
 int yellowled =7; // initialize digital pin 7.
@@ -147,7 +148,7 @@ digitalWrite(redled, LOW);// turn off red LED
 
 ## Code
 
-```
+```c
 
 int BASE = 2;  // the I/O pin for the first LED
 int NUM = 6;   // number of LEDs
@@ -205,7 +206,7 @@ void loop()
 
 ## Code
 
-```
+```c
 
 int ledpin=11;// initialize pin 11
 int inpin=7;// initialize pin 7
@@ -252,7 +253,7 @@ else{
 
 ## Code
 
-```
+```c
 
 int buzzer=8;// initialize digital IO pin that controls the buzzer
 void setup() 
@@ -271,3 +272,67 @@ digitalWrite(buzzer, HIGH); // produce sound
 > The Buzzer makes sound.
 
 ![1634194968124](https://user-images.githubusercontent.com/91405741/137345459-3ad2e1ac-b091-40fd-bf7b-1bcccf29baec.jpg)
+
+<br>
+<hr>
+
+<a name="exp6"></a>
+
+# Experiment 6 : RGB LED
+
+> An experiment to understand the working of a RGB LED.
+
+## Components Required
+
+* Arduino Uno
+* USB Cable * 1
+* RGB LED * 1
+* Resistor *3
+* Breadboard jumper wire*5
+
+## Circuit Diagrams
+
+![xX9cw_3102_1628160649](https://user-images.githubusercontent.com/91405741/137347719-6966c0b1-021d-471c-b0a7-48d0441752d0.png)
+
+![A8a40_3102_1628160631](https://user-images.githubusercontent.com/91405741/137347782-e0a8a008-8706-4b7c-ba31-38ef0ab6ca72.png)
+
+![TefdI_3102_1628167200](https://user-images.githubusercontent.com/91405741/137347822-228ccf9c-3a89-45ba-bb24-c3b0ee587818.png)
+
+## Code
+
+```c
+
+int redpin = 11; //select the pin for the red LED
+int bluepin =10; // select the pin for the blue LED
+int greenpin =9;// select the pin for the green LED
+int val;
+void setup() {
+  pinMode(redpin, OUTPUT);
+  pinMode(bluepin, OUTPUT);
+  pinMode(greenpin, OUTPUT);
+  Serial.begin(9600); //passes the value 9600 to the speed parameter. This tells the Arduino to get ready to exchange messages with the Serial Monitor at a data rate of 9600 bits per second. That's 9600 binary ones or zeros per second, and is commonly called a baud rate.
+}
+void loop() 
+{
+for(val=255; val>0; val--)
+  {
+   analogWrite(11, val);
+   analogWrite(10, 255-val);
+   analogWrite(9, 128-val);
+   delay(1); 
+  }
+for(val=0; val<255; val++)
+  {
+   analogWrite(11, val);
+   analogWrite(10, 255-val);
+   analogWrite(9, 128-val);
+   delay(1); 
+  }
+ Serial.println(val, DEC); //DEC specifies the format base 10 (decimal)
+}
+
+```
+
+## Output
+
+> The RGB LED blinks.
