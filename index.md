@@ -9,7 +9,8 @@
     1. [Hello World LED Blinking](#exp1)  
     2. [Traffic Light](#exp2)  
     3. [LED Chasing Effect](#exp3)
-    4. [Button Controlled LED](#exp4)  
+    4. [Button Controlled LED](#exp4)
+    5. [Buzzer](#exp5)  
 
 <br>
 <hr>
@@ -227,3 +228,46 @@ else{
 ## Output
 
 > When the push button is pressed the LED is turned on otherwise it is off.
+
+<br>
+<hr>
+
+<a name="exp5"></a>
+
+# Experiment 5 : Buzzer
+
+> An experiment to understand the working of a buzzer.
+
+## Components Required
+
+* Arduino Uno
+* Buzzer*1
+* Breadboard*1
+* Breadboard Jumper Wire*2
+* USB cable*1
+
+![BBr05_3102_1628160460](https://user-images.githubusercontent.com/91405741/137346830-1fa2408c-2a1d-4fdf-a049-5736aeb803ec.png)
+
+![e9Pdc_3102_1628160446](https://user-images.githubusercontent.com/91405741/137346912-0f871dbf-8e86-4734-a337-fceeff454e33.png)
+
+## Code
+
+```
+
+int buzzer=8;// initialize digital IO pin that controls the buzzer
+void setup() 
+{ 
+  pinMode(buzzer,OUTPUT);// set pin mode as “output”
+} 
+void loop() 
+{
+digitalWrite(buzzer, HIGH); // produce sound
+}
+
+```
+
+## Output
+
+> The Buzzer makes sound.
+
+![1634194968124](https://user-images.githubusercontent.com/91405741/137345459-3ad2e1ac-b091-40fd-bf7b-1bcccf29baec.jpg)
