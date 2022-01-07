@@ -13,6 +13,7 @@
     5. [Buzzer](#exp5)  
     6. [RGB LED](#exp6)
     7. [LDR Light Sensor](#exp7)
+    8. [Flame Sensor](#exp8)
 
 <br>
 <hr>
@@ -414,3 +415,81 @@ Serial.println(ldrStatus);
 ## Output
 
 > When the incident light on the LDR is weak, the LED is bright.
+
+<br>
+<hr>
+
+<a name="exp8"></a>
+
+# Experiment 8 : Flame Sensor
+
+> An experiment to understand the working of an Flame sensor.
+
+## Flame Sensor
+
+ **Usage**:These types of sensors are used for short range fire detection and can be used to monitor projects or as a safety precaution to cut devices off / on.
+
+ **Range**:I have found this unit is mostly accurate up to about 3 feet.
+
+ **How it works**:The flame sensor is very sensitive to IR wavelength at 760 nm ~ 1100 nm light.
+
+**Analog output (A0)**: Real-time output voltage signal on the thermal resistance.
+
+**Digital output (D0)**: When the temperature reaches a certain threshold, the output high and low signal threshold adjustable via potentiometer.
+
+**Pins:**
+
+* VCC - Positive voltage input: 5v for analog 3.3v for Digital.
+
+* A0 - Analog output
+
+* D0 - Digital output
+
+* GND -  Ground
+
+## Components Required
+
+* Arduino UNO
+* Flame Sensor
+* LED
+* Buzzer
+* BreadBoard
+* Jumper
+
+## Circuit Diagrams
+
+![1636554036921 1](https://user-images.githubusercontent.com/91405741/141130577-55ec7164-a222-4dac-8e57-ada3298bb18e.jpg)
+
+
+   ## Code
+
+```c
+
+int flame=0;// select analog pin 0 for the sensor
+int Beep=9;// select digital pin 9 for the buzzer
+int val=0;// initialize variable
+ void setup() 
+{
+  pinMode(Beep,OUTPUT);// set LED pin as “output”
+ pinMode(flame,INPUT);// set buzzer pin as “input”
+ Serial.begin(9600);// set baud rate at “9600”
+ } 
+void loop() 
+{ 
+  val=analogRead(flame);// read the analog value of the sensor 
+  Serial.println(val);// output and display the analog value
+  if(val>=600)// when the analog value is larger than 600, the buzzer will buzz
+  {  
+   digitalWrite(Beep,HIGH); 
+   }else 
+   {  
+     digitalWrite(Beep,LOW); 
+    }
+   delay(500); 
+}
+
+```
+
+## Output
+
+> When a flame is shown to the flame sensor, the buzzer makes sound.
