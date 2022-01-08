@@ -16,6 +16,7 @@
     8. [Flame Sensor](#exp8)
     9. [LM35 Temperature Sensor](#exp9)
     10. [IR Remote Control Using TSOP](#exp10)
+    11. [Potentiometer analog Value Reading](#exp11)
 
 <br>
 <hr>
@@ -646,3 +647,46 @@ src="https://user-images.githubusercontent.com/91405741/141269217-5ec78d6e-1fdf-
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
+
+<br>
+<hr>
+
+<a name="exp11"></a>
+
+# Experiment 11 :Potentiometer analog Value Reading
+
+> An experiment to understand the working of Potentiometer.
+
+## Components Required
+
+* Arduino Uno Board*1
+* 10K Potentiometer *1
+* Breadboard*1
+* Breadboard Jumper Wire*3
+* USB cable*1
+
+## Circuit Diagrams
+
+![Pot 1](https://user-images.githubusercontent.com/91405741/141272087-4bd29d71-4a2d-4768-8576-3064f16acce4.jpg)
+
+![Pot1 1](https://user-images.githubusercontent.com/91405741/141272429-4aca8d07-5f73-45af-9478-e1f1ca9a139d.jpg)
+
+## Code
+
+```c
+
+int potpin=0;// initialize analog pin 0
+int val=0;// define val, assign initial value 0
+void setup(){
+    Serial.begin(9600);// set baud rate at 9600
+}
+void loop(){
+    val=analogRead(potpin);// read the analog value of analog pin 0, and assign it to val 
+    Serial.println(val);// display val’s value
+}
+
+```
+
+## Output
+
+> The potentiometer readings are shown in the serial monitor.
