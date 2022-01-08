@@ -15,6 +15,7 @@
     7. [LDR Light Sensor](#exp7)
     8. [Flame Sensor](#exp8)
     9. [LM35 Temperature Sensor](#exp9)
+    10. [IR Remote Control Using TSOP](#exp10)
 
 <br>
 <hr>
@@ -545,3 +546,103 @@ delay(2000);// wait for 2 second
 ## Output
 
 > Temperature readings are shown in the serial monitor.
+
+<br>
+<hr>
+
+<a name="exp10"></a>
+
+# Experiment 10:IR Remote Control Using TSOP
+
+> An experiment to understand the working of IR Remote Control using TSOP.
+
+## Components Required
+
+* Arduino Uno Board*1
+* Infrared Remote Controller(You can use TV Remote or any other remote) *1
+* Infrared Receiver *1
+* LED *6
+* 220ΩResistor *6
+* Breadboard Wire 
+* USB cable*1
+
+## Circuit Diagrams
+
+![Tsop 1](https://user-images.githubusercontent.com/91405741/141268754-70c61b07-123b-4ef2-8568-70e8610e7a98.jpg)
+
+## Code
+
+```c
+
+#include <IRremote.h> 
+int RECV_PIN = 3;              
+int c=0;                      
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+void setup()
+{
+   pinMode(8, OUTPUT);
+   pinMode(9, OUTPUT);
+   pinMode(10, OUTPUT);
+   pinMode(11, OUTPUT);
+   pinMode(12, OUTPUT);
+
+   Serial.begin(9600);
+  irrecv.enableIRIn();                     
+}
+void loop() {
+  if (irrecv.decode(&results)) {
+    Serial.println(results.value);
+    irrecv.resume();                        
+  if(results.value==16773645)      //Up                            
+  {
+             digitalWrite(8,HIGH);
+  }
+  else if(results.value==4294967295)
+  {
+             digitalWrite(8,LOW);
+  }
+   if(results.value==16763445)  //Down                                     
+  {
+             digitalWrite(9,HIGH);
+  }
+  else if(results.value==4294967295)
+  {
+             digitalWrite(9,LOW);
+  }
+    if(results.value==16769565) //left                                       
+  {
+             digitalWrite(10,HIGH);
+  }
+  else if(results.value==4294967295) 
+  {
+             digitalWrite(10,LOW);
+  }
+    if(results.value==16771605) //right                                       
+  {
+             digitalWrite(11,HIGH);
+  }
+  else if(results.value==4294967295)
+  {
+             digitalWrite(11,LOW);
+  }
+    if(results.value==16714485) //ok                                       
+  {
+             digitalWrite(12,HIGH);
+  }
+  else if(results.value==4294967295)
+  {
+             digitalWrite(12,LOW);
+  }
+  }
+}
+
+```
+
+## Output
+
+<iframe width="560" height="315"
+src="https://user-images.githubusercontent.com/91405741/141269217-5ec78d6e-1fdf-41b5-a763-49da9c60eebf.mp4"
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
