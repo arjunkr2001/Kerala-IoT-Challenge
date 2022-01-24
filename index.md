@@ -18,6 +18,7 @@
     10. [IR Remote Control Using TSOP](#exp10)
     11. [Potentiometer analog Value Reading](#exp11)
     12. [7 Segment Display](#exp12)
+    13. [Assignment 1: Automatic Night Lamp Model](#assignment1)
 
 <br>
 <hr>
@@ -873,3 +874,69 @@ src="https://user-images.githubusercontent.com/91405741/141275839-72e6ad82-c56f-
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe> 
+
+<br>
+<hr>
+
+<a name="assignment1"></a>
+
+# Assignment 1 - Automatic Night Lamp Model
+
+> To make an automatic night lamp model.
+
+## LDR : Light Dependent Sensor
+
+> Photo Resistor (Photovaristor) is a resistor whose resistance varies from different incident light strength. It's based on the photoelectric effect of semiconductor. If the incident light is intense, its resistance reduces; if the incident light is weak, the resistance increases.
+
+![L5Iw9_3102_1628755894](https://user-images.githubusercontent.com/91405741/138436746-d1cfb008-0d90-4754-b4c4-fe133329c8b5.png)
+
+## Components Required
+
+* Arduino Uno Board
+* Photo Resistor*1
+* Red M5 LED*1
+* 10KΩ Resistor*1
+* 220Ω Resistor*1
+* Breadboard*1
+* Breadboard Jumper Wire*7
+* USB cable*1
+
+## Circuit Diagrams
+
+![InShot_20211022_104012830](https://user-images.githubusercontent.com/91405741/138399282-80073c77-63f1-423b-81e3-03a16524fca2.jpg)
+
+![schema_Myt5vqqplZ](https://user-images.githubusercontent.com/91405741/138436635-60cb2ec4-091d-4f24-bf96-b0289e06fa00.png)
+
+![ckt diagram](https://i.postimg.cc/L5GKFBLx/automatic-night-lamp.png)
+
+
+
+## Code
+
+```c
+
+const int ledPin = 13;
+const int ldrPin = A0;
+void setup() {
+Serial.begin(9600);
+pinMode(ledPin, OUTPUT);
+pinMode(ldrPin, INPUT);
+}
+void loop() {
+int ldrStatus = analogRead(ldrPin);
+if (ldrStatus <= 200) {
+digitalWrite(ledPin, HIGH);
+Serial.print("Its DARK, Turn on the LED : ");
+Serial.println(ldrStatus);
+} else {
+digitalWrite(ledPin, LOW);
+Serial.print("Its BRIGHT, Turn off the LED : ");
+Serial.println(ldrStatus);
+}
+}
+
+```
+
+## Output
+
+> When the room is dark, the LED is bright.
